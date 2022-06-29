@@ -5,22 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.7/dist/flowbite.min.css" />
     <title>Chat App</title>
 </head>
 <body>
+    
+
+    <div class="navbar">
+        <img src="chat_icon.png"/>
+        <div class="headline">
+            <h1>chatBytes</h1>
+            <p>Built using socket.io</p>
+        </div>
+            <div class="logo"></div>
+            <div class="link-section">
+                <div class="links">About</div>
+                <div class="links">Help</div>
+                <div class="links">Account</div>
+            </div>
+    </div>
     <section class="chat_section">
         <div class="brand">
             <img src="/public/ChatBytes.png" alt="">
             <h1>Chat Bytes</h1>
+            <div class="connected-user-name"></div>
         </div>
         <div class="message_area"></div>
-            <div>
+            <div class="enter-box">
                 <textarea id="textarea" cols="30" rows="1" placeholder="Enter message"></textarea>
+                <button id="send-button">Send</button>
             </div>
+           
     </section>
+
 
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="/client.js"></script>
+    <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
 </body>
 </html>

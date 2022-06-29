@@ -13,10 +13,21 @@ app.get('/',(req,res) =>{
 });
 
 const io=require("socket.io")(server)
+const users = {}
 io.on('connection',(socket)=>{
     console.log("Connected")
     socket.on("message",(msg)=>{
-        //console.log(msg);
         socket.broadcast.emit('message',msg)
     })
+    socket.on('new-user', user_name => {
+        users[socket.id]=user_name
+        socket.broadcast.emit('user_connected',user_name)
+      })
+      socket.on('disconnect', () => {
+        socket.broadcast.emit('user-disconnected', users[socket.id])
+        delete users[socket.id]
+      })
 });
+
+
+
